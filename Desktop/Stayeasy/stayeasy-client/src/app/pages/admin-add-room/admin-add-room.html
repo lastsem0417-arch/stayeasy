@@ -1,0 +1,8 @@
+<h3>Add New Room</h3>
+
+<input placeholder="Room Name" [(ngModel)]="room.name"><br><br>
+<input placeholder="Type (AC/Non-AC)" [(ngModel)]="room.type"><br><br>
+<input type="number" placeholder="Price" [(ngModel)]="room.price"><br><br>
+<input placeholder="Image URL" [(ngModel)]="room.image"><br><br>
+
+<button (click)="addRoom()">Add Room</button>

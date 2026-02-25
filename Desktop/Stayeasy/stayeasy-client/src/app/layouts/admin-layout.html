@@ -1,0 +1,25 @@
+<div style="display:flex;height:100vh">
+
+  <div style="width:220px;background:#333;color:white;padding:15px">
+    <h3>Admin Panel</h3>
+
+    <a routerLink="/admin/add-room"
+       style="color:white;display:block;margin:10px 0">
+      Add Room
+    </a>
+
+    <a routerLink="/admin/bookings"
+       style="color:white;display:block;margin:10px 0">
+      All Bookings
+    </a>
+
+    <button style="margin-top:20px" (click)="logout()">
+      Logout
+    </button>
+  </div>
+
+  <div style="flex:1;padding:20px">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

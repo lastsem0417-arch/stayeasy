@@ -1,0 +1,38 @@
+<h2>All Bookings (Admin)</h2>
+
+<p *ngIf="loading">Loading bookings...</p>
+
+<table *ngIf="!loading && bookings.length > 0"
+       border="1"
+       cellpadding="10"
+       cellspacing="0">
+
+  <tr>
+    <th>Room Name</th>
+    <th>Type</th>
+    <th>Price</th>
+    <th>User ID</th>
+    <th>Check-in</th>
+    <th>Nights</th>
+    <th>Action</th>
+  </tr>
+
+  <tr *ngFor="let b of bookings">
+    <td>{{ b.roomId?.name }}</td>
+    <td>{{ b.roomId?.type }}</td>
+    <td>₹ {{ b.roomId?.price }}</td>
+    <td>{{ b.userId }}</td>
+    <td>{{ b.checkIn }}</td>
+    <td>{{ b.nights }}</td>
+    <td>
+      <button (click)="deleteBooking(b._id)" style="color:red">
+        Delete
+      </button>
+    </td>
+  </tr>
+
+</table>
+
+<p *ngIf="!loading && bookings.length === 0">
+  No bookings found
+</p>

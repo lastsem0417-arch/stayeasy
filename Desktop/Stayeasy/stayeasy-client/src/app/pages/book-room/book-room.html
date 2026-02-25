@@ -1,0 +1,44 @@
+<h2>Book Room</h2>
+
+<p *ngIf="loading">Loading room details...</p>
+
+<div *ngIf="!loading && room"
+     style="
+       display:flex;
+       gap:20px;
+       border:1px solid #ccc;
+       padding:15px;
+       border-radius:8px;
+       margin-bottom:20px
+     ">
+
+  <!-- IMAGE -->
+  <img
+    [src]="room.image || 'https://dummyimage.com/300x200/cccccc/000000&text=No+Image'"
+    style="width:300px; height:200px; object-fit:cover; border-radius:6px"
+  >
+
+  <!-- DETAILS -->
+  <div>
+    <h3>{{ room.name }}</h3>
+    <p>Type: {{ room.type }}</p>
+    <p><b>Price:</b> ₹ {{ room.price }}</p>
+  </div>
+</div>
+
+<!-- BOOKING FORM -->
+<div *ngIf="!loading">
+
+  <label>Check-in Date:</label><br>
+  <input type="date" [(ngModel)]="booking.checkIn"><br><br>
+
+  <label>Nights:</label><br>
+  <input type="number" min="1" [(ngModel)]="booking.nights"><br><br>
+
+  <button
+    (click)="bookRoom()"
+    style="padding:8px 16px; background:#1976d2; color:white; border:none; border-radius:4px">
+    Confirm Booking
+  </button>
+
+</div>

@@ -1,0 +1,39 @@
+<h2>My Bookings</h2>
+
+<p *ngIf="loading">Loading your bookings...</p>
+
+<p *ngIf="!loading && bookings.length === 0">
+  No bookings found
+</p>
+
+<div *ngFor="let b of bookings"
+     style="
+       border:1px solid #ccc;
+       padding:15px;
+       margin-bottom:15px;
+       border-radius:8px;
+       display:flex;
+       gap:15px;
+       box-shadow:0 2px 6px rgba(0,0,0,0.1)
+     ">
+
+  <!-- ROOM IMAGE -->
+  <img
+    [src]="b.roomId?.image || 'https://dummyimage.com/150x120/cccccc/000000&text=No+Image'"
+    style="width:150px; height:120px; object-fit:cover; border-radius:6px"
+  >
+
+  <!-- DETAILS -->
+  <div>
+    <h3 style="margin:0 0 5px 0">
+      {{ b.roomId?.name }}
+    </h3>
+
+    <p>Type: {{ b.roomId?.type }}</p>
+    <p>Price: ₹ {{ b.roomId?.price }}</p>
+
+    <p><b>Check-in:</b> {{ b.checkIn }}</p>
+    <p><b>Nights:</b> {{ b.nights }}</p>
+  </div>
+
+</div>

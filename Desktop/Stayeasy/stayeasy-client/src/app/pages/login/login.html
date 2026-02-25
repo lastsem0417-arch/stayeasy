@@ -1,0 +1,26 @@
+<h2>Login</h2>
+
+<p style="color:red" *ngIf="errorMsg">{{ errorMsg }}</p>
+
+<input
+  type="email"
+  placeholder="Email"
+  [(ngModel)]="email"
+/>
+<br><br>
+
+<input
+  type="password"
+  placeholder="Password"
+  [(ngModel)]="password"
+/>
+<br><br>
+
+<button (click)="login()" [disabled]="loading">
+  {{ loading ? 'Logging in...' : 'Login' }}
+</button>
+
+<p style="margin-top:10px">
+  New user?
+  <a routerLink="/register">Register here</a>
+</p>

@@ -1,0 +1,17 @@
+<nav style="background:#1976d2; color:white; padding:10px">
+  <a routerLink="/user/rooms" style="color:white; margin-right:15px">
+    Rooms
+  </a>
+
+  <a routerLink="/user/my-bookings" style="color:white; margin-right:15px">
+    My Bookings
+  </a>
+
+  <button
+    style="float:right"
+    (click)="logout()">
+    Logout
+  </button>
+</nav>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,19 @@
+<h2>Admin Dashboard</h2>
+
+<div style="display:flex; gap:20px">
+
+  <!-- Sidebar -->
+  <div style="width:200px; border-right:2px solid #ccc; padding-right:10px">
+    <p><b>Admin Menu</b></p>
+
+    <a routerLink="/admin/add-room">➕ Add Room</a><br><br>
+    <a routerLink="/admin/bookings">📄 View Bookings</a><br><br>
+    <a routerLink="/rooms">⬅ Back to Rooms</a>
+  </div>
+
+  <!-- Content -->
+  <div style="flex:1; padding:10px">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

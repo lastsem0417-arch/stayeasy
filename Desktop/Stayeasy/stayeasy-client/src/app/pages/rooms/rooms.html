@@ -1,0 +1,58 @@
+<h2>Available Rooms</h2>
+
+<p *ngIf="loading">Loading rooms...</p>
+
+<p *ngIf="!loading && rooms.length === 0">
+  No rooms available
+</p>
+
+<div style="display:flex; flex-wrap:wrap; gap:20px">
+
+  <div *ngFor="let room of rooms"
+       style="
+         width:280px;
+         border:1px solid #ccc;
+         border-radius:8px;
+         overflow:hidden;
+         box-shadow:0 2px 6px rgba(0,0,0,0.15)
+       ">
+
+    <!-- IMAGE -->
+    <img
+      [src]="room.image || 'https://dummyimage.com/300x180/cccccc/000000&text=No+Image'"
+      alt="Room Image"
+      style="width:100%; height:180px; object-fit:cover"
+      (error)="room.image='https://dummyimage.com/300x180/cccccc/000000&text=No+Image'"
+    >
+
+    <!-- CONTENT -->
+    <div style="padding:12px">
+      <h3 style="margin:0 0 6px 0">{{ room.name }}</h3>
+
+      <p style="margin:4px 0">
+        Type: {{ room.type }}
+      </p>
+
+      <p style="margin:4px 0; font-weight:bold">
+        ₹ {{ room.price }}
+      </p>
+
+      <!-- 🔥 FIXED ROUTE -->
+      <button
+        [routerLink]="['/user/book-room', room._id]"
+        style="
+          margin-top:8px;
+          padding:6px 12px;
+          border:none;
+          background:#1976d2;
+          color:white;
+          border-radius:4px;
+          cursor:pointer
+        ">
+        Book Now
+      </button>
+    </div>
+
+  </div>
+
+</div>
