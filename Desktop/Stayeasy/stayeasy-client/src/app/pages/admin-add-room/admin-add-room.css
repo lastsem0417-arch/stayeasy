@@ -1,0 +1,119 @@
+/* add-room.component.css */
+
+/* Host Container Styling (The Card) */
+:host {
+  display: flex;
+  flex-direction: column;
+  max-width: 450px;
+  margin: 60px auto;
+  padding: 40px 32px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.03);
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+:host:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+/* Heading Styling */
+h3 {
+  color: #1e293b;
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 28px;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+/* Hide <br> tags to enforce modern CSS spacing instead */
+br {
+  display: none;
+}
+
+/* Input Fields */
+input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  background-color: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  color: #334155;
+  font-size: 15px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  outline: none;
+  display: block;
+}
+
+input::placeholder {
+  color: #94a3b8;
+}
+
+input:focus {
+  background-color: #ffffff;
+  border-color: #3b82f6; /* Professional blue focus */
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+/* Clean up the number input spinner arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Primary Button */
+button {
+  width: 100%;
+  padding: 14px;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  margin-top: 8px;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  :host {
+    margin: 40px 16px;
+    padding: 32px 24px;
+    border-radius: 12px;
+  }
+  
+  h3 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+  
+  input {
+    margin-bottom: 16px;
+  }
+}

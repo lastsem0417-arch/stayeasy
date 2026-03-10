@@ -1,0 +1,129 @@
+/* admin-dashboard.component.css */
+
+/* Main Component Host Wrapper */
+:host {
+  display: block;
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f8fafc; /* Light gray page background */
+  min-height: 100vh;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* Dashboard Heading */
+h2 {
+  color: #1e293b;
+  font-size: 32px;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 32px;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+/* Flex Container Override (The Card) */
+div[style*="display:flex; gap:20px"] {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.03);
+  padding: 32px !important;
+  border: 1px solid #e2e8f0;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 0 !important; /* Removing inline gap to handle via padding/margins for better mobile control */
+  
+  /* Mobile default setup */
+  flex-direction: column;
+}
+
+/* Sidebar Styling Override */
+div[style*="width:200px"] {
+  width: 100% !important; /* Full width on mobile */
+  border-right: none !important; /* Remove inline harsh border */
+  border-bottom: 2px solid #f1f5f9; /* Add bottom border for mobile */
+  padding-right: 0 !important;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+}
+
+/* Sidebar Menu Title */
+div[style*="width:200px"] p {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+div[style*="width:200px"] p b {
+  color: #64748b;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Hide the hardcoded <br> tags */
+div[style*="width:200px"] br {
+  display: none;
+}
+
+/* Sidebar Navigation Links */
+div[style*="width:200px"] a {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  color: #475569;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background-color: #f8fafc;
+  border: 1px solid transparent;
+}
+
+div[style*="width:200px"] a:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Sidebar Link Hover Effects */
+div[style*="width:200px"] a:hover {
+  background-color: #eff6ff; /* Soft blue background */
+  color: #2563eb; /* Primary blue text */
+  border-color: #bfdbfe;
+  transform: translateX(6px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+/* Active/Click State */
+div[style*="width:200px"] a:active {
+  transform: translateX(2px);
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.1);
+}
+
+/* Main Content Area Override */
+div[style*="flex:1"] {
+  padding: 0 !important;
+  width: 100%;
+}
+
+/* --------------------------------------
+   Desktop & Tablet Layout (Responsive) 
+   -------------------------------------- */
+@media (min-width: 768px) {
+  div[style*="display:flex; gap:20px"] {
+    flex-direction: row; /* Switch back to row for desktop */
+    padding: 40px !important;
+  }
+
+  div[style*="width:200px"] {
+    width: 240px !important; /* Slightly wider, comfortable sidebar */
+    border-right: 2px solid #f1f5f9 !important; /* Soft desktop divider */
+    border-bottom: none; /* Remove mobile bottom divider */
+    padding-right: 32px !important;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  div[style*="flex:1"] {
+    padding-left: 32px !important; /* Spacing between sidebar and content */
+  }
+}

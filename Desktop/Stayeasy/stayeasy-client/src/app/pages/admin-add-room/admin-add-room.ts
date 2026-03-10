@@ -7,7 +7,8 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
   selector: 'app-admin-add-room',
   imports: [CommonModule, FormsModule],
-  templateUrl: './admin-add-room.html'
+  templateUrl: './admin-add-room.html',
+  styleUrls: ['./admin-add-room.css']
 })
 export class AdminAddRoomComponent {
 

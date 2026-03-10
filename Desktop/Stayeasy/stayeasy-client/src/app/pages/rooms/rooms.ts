@@ -7,7 +7,8 @@ import { RouterModule } from '@angular/router'; // 🔥 ADD THIS
   selector: 'app-rooms',
   standalone: true,
   imports: [CommonModule, RouterModule], // ✅ now valid
-  templateUrl: './rooms.html'
+  templateUrl: './rooms.html',
+  styleUrls: ['./rooms.css']
 })
 export class RoomsComponent implements OnInit {
 

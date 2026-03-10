@@ -1,0 +1,206 @@
+/* book-room.component.css */
+
+/* Main Container */
+:host {
+  display: block;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+h2 {
+  color: #1e293b;
+  font-size: 32px;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 32px;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+/* Loading Text */
+:host > p {
+  background-color: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  color: #64748b;
+  padding: 32px;
+  text-align: center;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Room Details Card (Overriding inline styles) */
+div[style*="display:flex"] {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+  margin-bottom: 32px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  align-items: center; /* Centers items vertically on desktop */
+}
+
+div[style*="display:flex"]:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+/* Room Image (Overriding inline styles) */
+img[style*="width:300px"] {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f1f5f9;
+}
+
+/* Room Text Container inside Card */
+div[style*="display:flex"] > div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+div[style*="display:flex"] h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+div[style*="display:flex"] p {
+  margin: 0;
+  color: #475569;
+  font-size: 16px;
+}
+
+div[style*="display:flex"] b {
+  color: #2563eb; /* Primary blue for price */
+  font-size: 20px;
+  background-color: #eff6ff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #bfdbfe;
+  display: inline-block;
+}
+
+/* Booking Form Container (Targeting the second div) */
+div:not([style*="display:flex"]) {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+/* Hide the <br> tags to enforce flex/block spacing */
+br {
+  display: none;
+}
+
+/* Form Labels */
+label {
+  display: block;
+  font-weight: 600;
+  color: #334155;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+label:first-of-type {
+  margin-top: 0;
+}
+
+/* Input Fields */
+input {
+  width: 100%;
+  max-width: 400px; /* Restrict width on desktop so it doesn't stretch too far */
+  padding: 14px 16px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  background-color: #f8fafc;
+  color: #1e293b;
+  font-size: 15px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  outline: none;
+  display: block;
+  box-sizing: border-box;
+}
+
+input:focus {
+  background-color: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* Confirm Booking Button (Overriding inline styles) */
+button {
+  margin-top: 28px;
+  padding: 16px 32px !important;
+  background-color: #2563eb !important; /* Professional Blue */
+  color: #ffffff !important;
+  font-size: 16px;
+  font-weight: 600;
+  border: none !important;
+  border-radius: 10px !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  display: block;
+  width: 100%;
+  max-width: 400px;
+}
+
+button:hover {
+  background-color: #1d4ed8 !important;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 650px) {
+  /* Stack the Room Details Card vertically */
+  div[style*="display:flex"] {
+    flex-direction: column !important;
+    gap: 20px !important;
+    padding: 24px !important;
+    text-align: center;
+  }
+
+  /* Make image responsive */
+  img[style*="width:300px"] {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 250px;
+  }
+
+  /* Adjust Form Card padding */
+  div:not([style*="display:flex"]) {
+    padding: 24px 20px;
+  }
+  
+  input, button {
+    max-width: 100%;
+  }
+}

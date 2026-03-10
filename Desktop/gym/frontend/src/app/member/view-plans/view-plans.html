@@ -1,0 +1,26 @@
+<div class="container py-4">
+  <h3 class="mb-3">Available Plans</h3>
+
+  <div *ngIf="loading" class="alert alert-info py-2">Loading plans...</div>
+  <div *ngIf="error" class="alert alert-danger py-2">{{ error }}</div>
+  <div *ngIf="message" class="alert alert-success py-2">{{ message }}</div>
+
+  <div class="row g-3" *ngIf="!loading && plans.length">
+    <div class="col-md-4" *ngFor="let plan of plans">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ plan.name }}</h5>
+          <p class="card-text mb-1"><strong>Duration:</strong> {{ plan.duration }}</p>
+          <p class="card-text mb-3"><strong>Price:</strong> ₹{{ plan.price }}</p>
+          <button class="btn btn-primary btn-sm" (click)="join(plan)">
+            Join Plan
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p *ngIf="!loading && !plans.length" class="text-muted">
+    No plans available yet. Please contact the admin.
+  </p>
+</div>

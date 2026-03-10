@@ -12,7 +12,8 @@ import { AuthService } from '../../services/auth.service';
     FormsModule,
     RouterModule   // ✅ required for routerLink
   ],
-  templateUrl: './register.html'
+  templateUrl: './register.html',
+  styleUrls: ['./register.css']
 })
 export class RegisterComponent {
 

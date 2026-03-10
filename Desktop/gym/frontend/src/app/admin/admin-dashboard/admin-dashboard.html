@@ -1,0 +1,31 @@
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">Admin Dashboard</h2>
+    <button class="btn btn-outline-danger btn-sm" (click)="logout()">Logout</button>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Manage Plans</h5>
+          <p class="card-text text-muted">
+            Create and update gym membership plans.
+          </p>
+          <a routerLink="/admin/plans" class="btn btn-primary btn-sm">Add / View Plans</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Members</h5>
+          <p class="card-text text-muted">
+            View registered members and activate memberships.
+          </p>
+          <a routerLink="/admin/members" class="btn btn-secondary btn-sm">View Members</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

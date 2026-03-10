@@ -8,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
   selector: 'app-book-room',
   imports: [CommonModule, FormsModule, RouterModule],
-  templateUrl: './book-room.html'
+  templateUrl: './book-room.html',
+  styleUrls: ['./book-room.css']
 })
 export class BookRoomComponent implements OnInit {
 

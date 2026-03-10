@@ -1,0 +1,39 @@
+<div class="container py-4">
+  <h3 class="mb-3">My Membership</h3>
+
+  <div *ngIf="loading" class="alert alert-info py-2">Loading membership...</div>
+  <div *ngIf="error" class="alert alert-danger py-2">{{ error }}</div>
+
+  <div *ngIf="!loading && memberships.length">
+    <div class="row g-3">
+      <div class="col-md-6" *ngFor="let m of memberships">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ getPlan(m)?.name || 'Plan' }}
+              <span class="badge bg-success ms-2" *ngIf="m.status === 'active'">
+                Active
+              </span>
+              <span class="badge bg-secondary ms-2" *ngIf="m.status === 'expired'">
+                Expired
+              </span>
+            </h5>
+            <p class="mb-1">
+              <strong>Duration:</strong> {{ getPlan(m)?.duration }}
+            </p>
+            <p class="mb-1">
+              <strong>Start:</strong> {{ m.startDate | date: 'mediumDate' }}
+            </p>
+            <p class="mb-0">
+              <strong>End:</strong> {{ m.endDate | date: 'mediumDate' }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p *ngIf="!loading && !memberships.length" class="text-muted">
+    You don't have any memberships yet. Browse plans and join one.
+  </p>
+</div>

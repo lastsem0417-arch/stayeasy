@@ -6,7 +6,8 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
   selector: 'app-admin-bookings',
   imports: [CommonModule],
-  templateUrl: './admin-bookings.html'
+  templateUrl: './admin-bookings.html',
+  styleUrls: ['./admin-bookings.css']
 })
 export class AdminBookingsComponent implements OnInit {
 

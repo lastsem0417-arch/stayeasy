@@ -1,0 +1,122 @@
+/* my-bookings.component.css */
+
+/* Host Container Styling */
+:host {
+  display: block;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+h2 {
+  color: #1e293b;
+  font-size: 32px;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 32px;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+/* Loading & Empty State Paragraphs */
+:host > p {
+  background-color: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  color: #64748b;
+  padding: 32px;
+  text-align: center;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+/* Booking Card (Overriding heavy inline styles) */
+div[style*="border:1px solid #ccc"] {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+  margin-bottom: 24px !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02), 0 10px 15px rgba(0, 0, 0, 0.03) !important;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease !important;
+  align-items: center; /* Centers content vertically on desktop */
+}
+
+div[style*="border:1px solid #ccc"]:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06), 0 5px 10px rgba(0, 0, 0, 0.04) !important;
+  transform: translateY(-4px) !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Room Image (Overriding inline dimensions and border-radius) */
+img[style*="width:150px"] {
+  width: 180px !important; /* Slightly larger for better desktop view */
+  height: 140px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f1f5f9;
+  flex-shrink: 0; /* Prevents image from squishing */
+}
+
+/* Details Container */
+div[style*="border:1px solid #ccc"] > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Room Name Heading */
+h3[style*="margin:0 0 5px 0"] {
+  margin: 0 0 4px 0 !important;
+  color: #0f172a;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Detail Paragraphs */
+div[style*="border:1px solid #ccc"] p {
+  margin: 0;
+  color: #475569;
+  font-size: 15px;
+}
+
+/* Price & Bold Text Styling */
+div[style*="border:1px solid #ccc"] b {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Specific styling for the Price line to make it pop */
+div[style*="border:1px solid #ccc"] p:nth-of-type(2) {
+  color: #2563eb;
+  font-weight: 600;
+  background-color: #eff6ff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid #bfdbfe;
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 4px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  /* Stack the Booking Card vertically */
+  div[style*="border:1px solid #ccc"] {
+    flex-direction: column !important;
+    gap: 20px !important;
+    padding: 20px !important;
+    align-items: flex-start !important;
+  }
+
+  /* Make image span full width of the card */
+  img[style*="width:150px"] {
+    width: 100% !important;
+    height: 200px !important;
+  }
+}

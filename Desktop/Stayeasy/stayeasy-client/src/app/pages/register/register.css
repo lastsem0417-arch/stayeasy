@@ -1,0 +1,126 @@
+/* register.component.css */
+
+/* Host Container Styling (The Card) */
+:host {
+  display: block;
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 40px 32px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.03);
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+:host:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+/* Heading Styling */
+h2 {
+  color: #1e293b;
+  font-size: 28px;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 28px;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+/* Hide <br> tags to enforce modern CSS spacing instead */
+br {
+  display: none;
+}
+
+/* Input Fields */
+input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  background-color: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  color: #334155;
+  font-size: 15px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  outline: none;
+  display: block;
+}
+
+input::placeholder {
+  color: #94a3b8;
+}
+
+input:focus {
+  background-color: #ffffff;
+  border-color: #3b82f6; /* Professional blue focus */
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+/* Primary Button */
+button {
+  width: 100%;
+  padding: 14px;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+
+/* Bottom Text */
+p {
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Login Link */
+p a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 4px;
+  transition: color 0.2s ease;
+}
+
+p a:hover {
+  color: #1e40af;
+  text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  :host {
+    margin: 40px 16px;
+    padding: 32px 24px;
+    border-radius: 12px;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,53 @@
+<div class="container py-4">
+  <h3 class="mb-3">Members</h3>
+
+  <div *ngIf="loading" class="alert alert-info py-2">Loading members...</div>
+  <div *ngIf="error" class="alert alert-danger py-2">{{ error }}</div>
+  <div *ngIf="info" class="alert alert-success py-2">{{ info }}</div>
+
+  <div class="table-responsive" *ngIf="!loading && members.length">
+    <table class="table table-striped table-hover align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Joined</th>
+          <th style="width: 260px;">Activate Membership</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let member of members">
+          <td>{{ member.name }}</td>
+          <td>{{ member.email }}</td>
+          <td>{{ member.createdAt | date: 'mediumDate' }}</td>
+          <td>
+            <div class="d-flex gap-2 align-items-center">
+              <select
+                class="form-select form-select-sm"
+                [ngModel]="selectedPlanByMember[member._id] || plans[0]?._id"
+                (ngModelChange)="changeSelectedPlan(member._id, $event)"
+                [disabled]="!plans.length"
+              >
+                <option *ngFor="let p of plans" [value]="p._id">
+                  {{ p.name }} ({{ p.duration }})
+                </option>
+              </select>
+              <button
+                class="btn btn-sm btn-primary"
+                type="button"
+                (click)="activate(member)"
+                [disabled]="!plans.length"
+              >
+                Activate
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p *ngIf="!loading && !members.length" class="text-muted">
+    No members found yet.
+  </p>
+</div>
