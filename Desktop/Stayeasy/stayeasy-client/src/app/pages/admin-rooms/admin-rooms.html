@@ -1,0 +1,33 @@
+<h2>Manage Rooms</h2>
+
+<table border="1" cellpadding="10">
+
+<tr>
+<th>Image</th>
+<th>Name</th>
+<th>Type</th>
+<th>Price</th>
+<th>Action</th>
+</tr>
+
+<tr *ngFor="let room of rooms">
+
+<td>
+<img [src]="room.image" width="120">
+</td>
+
+<td>{{room.name}}</td>
+<td>{{room.type}}</td>
+<td>₹ {{room.price}}</td>
+
+<td>
+
+<button (click)="deleteRoom(room._id)">
+Delete
+</button>
+
+</td>
+
+</tr>
+
+</table>

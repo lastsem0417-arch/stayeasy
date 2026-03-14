@@ -1,62 +1,110 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-// 🔥 MODEL PATH CHECK (MOST IMPORTANT)
 const Room = require("./models/Room");
 
-/* =========================
-   ROOM DATA
-   ========================= */
+mongoose.connect(process.env.MONGO_URI)
+.then(()=>console.log("MongoDB Connected"));
+
 const rooms = [
-  {
-    name: "Standard Single Room",
-    type: "Standard",
-    price: 1200,
-    image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511"
-  },
-  {
-    name: "Deluxe City View Room",
-    type: "Deluxe",
-    price: 2800,
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"
-  },
-  {
-    name: "Premium King Room",
-    type: "Premium",
-    price: 4500,
-    image: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7"
-  },
-  {
-    name: "Executive Suite",
-    type: "Suite",
-    price: 6500,
-    image: "https://images.unsplash.com/photo-1595576508898-0ad5c879a061"
-  },
-  {
-    name: "Private Pool Villa",
-    type: "Villa",
-    price: 12000,
-    image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f"
-  }
+
+{
+name:"Deluxe King Room",
+type:"Deluxe",
+price:3200,
+capacity:2,
+description:"Spacious deluxe room with king size bed and city view.",
+image:"https://images.unsplash.com/photo-1566665797739-1674de7a421a",
+amenities:["WiFi","AC","TV","Mini Bar"],
+isAvailable:true
+},
+
+{
+name:"Luxury Suite",
+type:"Suite",
+price:6500,
+capacity:4,
+description:"Luxury suite with living area and premium facilities.",
+image:"https://images.unsplash.com/photo-1590490360182-c33d57733427",
+amenities:["WiFi","AC","TV","Jacuzzi","Mini Bar"],
+isAvailable:true
+},
+
+{
+name:"Standard Single Room",
+type:"Standard",
+price:1800,
+capacity:1,
+description:"Affordable room for solo travellers.",
+image:"https://images.unsplash.com/photo-1618773928121-c32242e63f39",
+amenities:["WiFi","AC","TV"],
+isAvailable:true
+},
+
+{
+name:"Premium Double Room",
+type:"Premium",
+price:4200,
+capacity:2,
+description:"Premium room with balcony and sea view.",
+image:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
+amenities:["WiFi","AC","TV","Balcony"],
+isAvailable:true
+},
+
+{
+name:"Family Room",
+type:"Family",
+price:4800,
+capacity:5,
+description:"Large family room perfect for group stay.",
+image:"https://images.unsplash.com/photo-1611892440504-42a792e24d32",
+amenities:["WiFi","AC","TV","Extra Beds"],
+isAvailable:true
+}
+
 ];
 
-async function seedRooms() {
-  try {
-    console.log("🔁 Connecting to MongoDB...");
-    await mongoose.connect(process.env.MONGO_URI);
 
-    console.log("🧹 Deleting old rooms...");
-    await Room.deleteMany();
 
-    console.log("➕ Inserting rooms...");
-    await Room.insertMany(rooms);
+/* AUTO GENERATE MORE ROOMS */
 
-    console.log("✅ Rooms seeded successfully");
-    process.exit(0);
-  } catch (err) {
-    console.error("❌ Seeding failed:", err);
-    process.exit(1);
-  }
+for(let i=6;i<=25;i++){
+
+rooms.push({
+
+name:`Luxury Room ${i}`,
+
+type:"Deluxe",
+
+price:2500 + (i*100),
+
+capacity:2,
+
+description:"Modern luxury room with stylish interior and comfortable bedding.",
+
+image:"https://images.unsplash.com/photo-1618773928121-c32242e63f39",
+
+amenities:["WiFi","AC","TV","Room Service"],
+
+isAvailable:true
+
+})
+
+}
+
+
+
+async function seedRooms(){
+
+await Room.deleteMany();
+
+await Room.insertMany(rooms);
+
+console.log("25 Rooms Seeded Successfully");
+
+process.exit();
+
 }
 
 seedRooms();

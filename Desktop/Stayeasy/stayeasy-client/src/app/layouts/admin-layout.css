@@ -1,0 +1,85 @@
+/* Layout */
+.admin-container{
+  display:flex;
+  height:100vh;
+  background:#f1f5f9;
+  font-family:Segoe UI,Roboto,sans-serif;
+}
+
+/* Sidebar */
+.sidebar{
+  width:230px;
+  background:#1e293b;
+  color:white;
+  display:flex;
+  flex-direction:column;
+  padding:20px;
+}
+
+/* Logo */
+.logo{
+  text-align:center;
+  margin-bottom:30px;
+  font-size:22px;
+  font-weight:700;
+  border-bottom:1px solid #334155;
+  padding-bottom:15px;
+}
+
+/* Menu */
+.menu{
+  display:flex;
+  flex-direction:column;
+}
+
+.menu a{
+  color:white;
+  text-decoration:none;
+  padding:12px 14px;
+  border-radius:8px;
+  margin-bottom:8px;
+  transition:0.2s;
+}
+
+.menu a:hover{
+  background:#2563eb;
+}
+
+.active{
+  background:#2563eb;
+}
+
+/* Logout */
+.logout-btn{
+  margin-top:auto;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  background:#ef4444;
+  color:white;
+  cursor:pointer;
+}
+
+.logout-btn:hover{
+  background:#dc2626;
+}
+
+/* Content */
+.content{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+
+/* Topbar */
+.topbar{
+  background:white;
+  padding:15px 25px;
+  border-bottom:1px solid #e5e7eb;
+}
+
+/* Page */
+.page{
+  padding:25px;
+  overflow:auto;
+}
