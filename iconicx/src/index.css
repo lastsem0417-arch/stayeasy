@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  /* The "Expensive" Palette */
+  --color-background: #F4F3EF; /* Alabaster / Warm Bone White */
+  --color-surface: #EAE8E3;
+  --color-primary: #121212; /* Obsidian Black */
+  --color-accent: #8A8A8A; /* Muted Silver */
+  --font-display: "Clash Display", sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    cursor: none; /* Crucial for our Smart Cursor */
+  }
+
+  /* Premium Noise Overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    opacity: 0.25; /* Subtle grain */
+    pointer-events: none;
+    z-index: 9999;
+    /* High-end transparent grain base64 */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E");
+  }
+}
+
+/* Custom class for our Smart Cursor to detect hover states */
+.hover-target {
+  cursor: none;
+}
+/* --- PHASE 5: THE ALTER-EGO RAW MODE --- */
+
+/* When Raw Mode is active on the body */
+body.raw-mode {
+  background-color: #050505 !important;
+  color: #ff003c !important; /* Glitch Red */
+  font-family: 'Courier New', Courier, monospace !important;
+}
+
+/* The CRT Scanline Overlay */
+body.raw-mode::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 99998;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+/* Screen Flicker Animation */
+@keyframes flicker {
+  0% { opacity: 0.95; }
+  5% { opacity: 0.85; }
+  10% { opacity: 0.95; }
+  15% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+body.raw-mode {
+  animation: flicker 0.15s infinite;
+}
+
+/* Force elements to inherit the raw vibe */
+body.raw-mode h1, 
+body.raw-mode h2, 
+body.raw-mode h3, 
+body.raw-mode p, 
+body.raw-mode span {
+  font-family: 'Courier New', Courier, monospace !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.2em !important;
+}
